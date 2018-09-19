@@ -16,25 +16,25 @@
     {
       selEl.removeChild(chNodes[i]);
     }
-    var tblList = [];
+    var tblNameList = [];
     var tblObjId = [];
 
-    if(!ZDBCreateViewAPI.checkAndGetTableList(tblList, tblObjId))
+    if(!ZDBCreateViewAPI.checkAndGetTableList(tblNameList, tblObjId))
     {
       return;
     }
-    if(tblList.length == 1) // if only one table is present directly jumping to creating view tab
+    if(tblNameList.length == 1) // if only one table is present directly jumping to creating view tab
     {
         var parentViewId = tblObjId[0];
         ZDBCreateViewAPI.createViewTab(parentViewId,viewType);
         return;
     }
 
-    for(var i = 0;i < tblList.length;i++)
+    for(var i = 0;i < tblNameList.length;i++)
     {
       var option = document.createElement("Option");
-      option.text = tblList[i];
-      option.value = tblList[i];
+      option.text = tblNameList[i];
+      option.value = tblNameList[i];
       
       (BROWSER.IE) ? selEl.add(option):selEl.appendChild(option);
     }
@@ -136,25 +136,25 @@ if(!ZDBLazyLoadUtil.loadSnippet("PICK_TABLE_FOR_VIEW","/ZDBPickTableForView.cc",
     {
       selEl.removeChild(chNodes[i]);
     }
-    var tblList = [];
+    var tblNameList = [];
     var tblObjId = [];
 
-    if(!ZDBCreateViewAPI.checkAndGetTableList(tblList, tblObjId))
+    if(!ZDBCreateViewAPI.checkAndGetTableList(tblNameList, tblObjId))
     {
       return;
     }
-    if(tblList.length == 1) // if only one table is present directly jumping to creating view tab
+    if(tblNameList.length == 1) // if only one table is present directly jumping to creating view tab
     {
         var parentViewId = tblObjId[0];
         ZDBCreateViewAPI.createViewTab(parentViewId,viewType);
         return;
     }
 
-    for(var i = 0;i < tblList.length;i++)
+    for(var i = 0;i < tblNameList.length;i++)
     {
       var option = document.createElement("Option");
-      option.text = tblList[i];
-      option.value = tblList[i];
+      option.text = tblNameList[i];
+      option.value = tblNameList[i];
       (BROWSER.IE) ? selEl.add(option):selEl.appendChild(option);
     }
          if(ZDBGlobal.ISNEWLAYOUT){
@@ -184,7 +184,7 @@ if(!ZDBLazyLoadUtil.loadSnippet("PICK_TABLE_FOR_VIEW","/ZDBPickTableForView.cc",
     var el = ZDBUtil.getCachedRef(ZDBCreateViewAPI,"ZDBTableForViewDlg");
     el.style.display = "block";
     el.viewType = viewType;
-    el.tblList = tblList;
+    el.tblNameList = tblNameList;
     el.tblObjId = tblObjId;
     var focusDlg=ZDBDialogUtil.showDialog(el,{TITLE:ZDBI18NMap.g('zrpt.common.newrpt.selbasetbl.js.dlgTtl',el),ADDFRAME:true,MODAL:true,DONTREMOVE:true});
       if(ZDBGlobal.ISNEWLAYOUT){
